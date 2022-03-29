@@ -66,24 +66,6 @@ class ImportRequest extends FormRequest
     }
 
     /**
-     * Get the validated data from the request.
-     *
-     * @return array
-     *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
-     */
-    public function validated()
-    {
-        $content = '';
-
-        if ($jsonFile = $this->file('tasks')) {
-            $content = $jsonFile->get();
-        }
-
-        return array_merge(parent::validated(), compact('content'));
-    }
-
-    /**
      * * Handle a failed validation attempt.
      *
      * @param  Validator  $validator
